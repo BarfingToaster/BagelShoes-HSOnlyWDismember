@@ -1,0 +1,16 @@
+<config>
+	<set xpath="/entity_classes/entity_class[contains(@name,'zombie')]/property[contains(@name,'DismemberMultiplier')]/@value">1</set>
+	<append xpath="/entity_classes/entity_class[contains(@name,'zombie') and not(contains(@name,'animal'))]/property[@name='Tags']/@value">,HeadshotOnly</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieTemplateMale']">
+		<effect_group name="Anti-bleeding">
+			<triggered_effect trigger="onSelfPrimaryActionUpdate" action="RemoveBuff" target="self" buff="buffInjuryBleeding,buffInjuryBleedingTwo,buffLaceration"/>
+		</effect_group>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='playerMale']">
+		<effect_group name="Damage modification">
+			<requirement name="EntityTagCompare" target="other" tags="HeadshotOnly"/>
+			<passive_effect name="DamageModifier" operation="base_subtract" value="10000" tags="lowerbody,upperbody"/>
+			<passive_effect name="DamageModifier" operation="perc_add" value="1.5" tags="head"/>
+		</effect_group>
+	</append>
+</config>	

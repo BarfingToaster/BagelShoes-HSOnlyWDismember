@@ -1,0 +1,2456 @@
+
+<config>
+	<remove xpath="/items/item[@name='meleeWpnSledgeT0StoneSledgehammer']/effect_group[@name='meleeWpnSledgeT0StoneSledgehammer']/passive_effect[@name='DismemberChance']"/>
+	<remove xpath="/items/item[@name='meleeWpnSledgeT0StoneSledgehammer']/effect_group[@name='Power Attack']/passive_effect[@name='DismemberChance']"/>
+	
+	<remove xpath="/items/item[@name='meleeWpnSledgeT1IronSledgehammer']/effect_group[@name='meleeWpnSledgeT1IronSledgehammer']/passive_effect[@name='DismemberChance']"/>
+	<remove xpath="/items/item[@name='meleeWpnSledgeT1IronSledgehammer']/effect_group[@name='Power Attack']/passive_effect[@name='DismemberChance']"/>
+	
+	<remove xpath="/items/item[@name='meleeWpnSledgeT3SteelSledgehammer']/effect_group[@name='meleeWpnSledgeT3SteelSledgehammer']/passive_effect[@name='DismemberChance']"/>
+	<remove xpath="/items/item[@name='meleeWpnSledgeT3SteelSledgehammer']/effect_group[@name='Power Attack']/passive_effect[@name='DismemberChance']"/>
+	
+	<append xpath="/items/item[contains(@name,'ammo') and not(contains(@name,'Zombie')) and not(contains(@name,'Bundle'))]/effect_group[contains(@name,'ammo')]">
+		<passive_effect name="DismemberChance" operation="base_set" value="0" tags="head,arm,leg"/>
+	</append>
+	
+	<append xpath="/items/item[(contains(@name,'meleeWpn') or contains(@name,'meleeTool')) and not(contains(@name,'Part'))]/effect_group[contains(@name,'meleeWpn') or contains(@name,'meleeTool') or contains(@name,'Power')]">
+		<passive_effect name="DismemberChance" operation="base_set" value="0" tags="head,arm,leg"/>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeHandPlayer']/effect_group[@name='meleeHandPlayer' or @name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_set" value="0" tags="head,arm,leg"/>
+	</append>
+	
+		<!--								RANGED WEAPONS                           -->
+						<!--                  Bullets                        -->
+						<!--                  Shotgun Rounds                 -->
+						<!--                  Headshots no helm              -->
+
+	<append xpath="/items/item[@name='ammoShotgunShell']/effect_group[@name='ammoShotgunShell']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="80"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+
+	<append xpath="/items/item[@name='ammoShotgunSlug']/effect_group[@name='ammoShotgunSlug']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="85"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+
+	<append xpath="/items/item[@name='ammoShotgunBreachingSlug']/effect_group[@name='ammoShotgunBreachingSlug']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+						<!--                  Headshots with helm              -->
+
+	<append xpath="/items/item[@name='ammoShotgunShell']/effect_group[@name='ammoShotgunShell']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+
+	<append xpath="/items/item[@name='ammoShotgunSlug']/effect_group[@name='ammoShotgunSlug']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+
+	<append xpath="/items/item[@name='ammoShotgunBreachingSlug']/effect_group[@name='ammoShotgunBreachingSlug']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="70"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+						<!--                  Arm Shots                      -->
+
+	<append xpath="/items/item[@name='ammoShotgunShell']/effect_group[@name='ammoShotgunShell']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="80"/>
+		</passive_effect>
+	</append>
+
+	<append xpath="/items/item[@name='ammoShotgunSlug']/effect_group[@name='ammoShotgunSlug']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="85"/>
+		</passive_effect>
+	</append>
+
+	<append xpath="/items/item[@name='ammoShotgunBreachingSlug']/effect_group[@name='ammoShotgunBreachingSlug']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90"/>
+		</passive_effect>
+	</append>
+						<!--                  Leg Shots                      -->
+
+	<append xpath="/items/item[@name='ammoShotgunShell']/effect_group[@name='ammoShotgunShell']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="70"/>
+		</passive_effect>
+	</append>
+
+	<append xpath="/items/item[@name='ammoShotgunSlug']/effect_group[@name='ammoShotgunSlug']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="80"/>
+		</passive_effect>
+	</append>
+
+	<append xpath="/items/item[@name='ammoShotgunBreachingSlug']/effect_group[@name='ammoShotgunBreachingSlug']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90"/>
+		</passive_effect>
+	</append>
+	
+						<!--                  9mm Bullets                    -->
+						<!--                  Headshots no helm				 -->
+	
+	<append xpath="/items/item[@name='ammo9mmBulletBall']/effect_group[@name='ammo9mmBulletBall']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="15"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammo9mmBulletHP']/effect_group[@name='ammo9mmBulletHP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="35"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammo9mmBulletAP']/effect_group[@name='ammo9mmBulletAP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+						<!--                  Headshots with helm				 -->
+	
+	<append xpath="/items/item[@name='ammo9mmBulletBall']/effect_group[@name='ammo9mmBulletBall']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="7"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammo9mmBulletHP']/effect_group[@name='ammo9mmBulletHP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="18"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammo9mmBulletAP']/effect_group[@name='ammo9mmBulletAP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="12"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+						<!--                  Arm shots						 -->
+	
+	<append xpath="/items/item[@name='ammo9mmBulletBall']/effect_group[@name='ammo9mmBulletBall']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammo9mmBulletHP']/effect_group[@name='ammo9mmBulletHP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammo9mmBulletAP']/effect_group[@name='ammo9mmBulletAP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="15"/>
+		</passive_effect>
+	</append>
+	
+						<!--                  Leg shots						 -->
+	
+	<append xpath="/items/item[@name='ammo9mmBulletBall']/effect_group[@name='ammo9mmBulletBall']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="5"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammo9mmBulletHP']/effect_group[@name='ammo9mmBulletHP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammo9mmBulletAP']/effect_group[@name='ammo9mmBulletAP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="7"/>
+		</passive_effect>
+	</append>
+						<!--                44 mag Bullets 	                	-->
+						<!--              	Headshots	no helm 				-->
+	
+	<append xpath="/items/item[@name='ammo44MagnumBulletBall']/effect_group[@name='ammo44MagnumBulletBall']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammo44MagnumBulletHP']/effect_group[@name='ammo44MagnumBulletHP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="70"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammo44MagnumBulletAP']/effect_group[@name='ammo44MagnumBulletAP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+					<!--                  	Headshots	with helm 				-->
+	
+	<append xpath="/items/item[@name='ammo44MagnumBulletBall']/effect_group[@name='ammo44MagnumBulletBall']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammo44MagnumBulletHP']/effect_group[@name='ammo44MagnumBulletHP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammo44MagnumBulletAP']/effect_group[@name='ammo44MagnumBulletAP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+						<!--                  	Arm shots						-->
+	
+	<append xpath="/items/item[@name='ammo44MagnumBulletBall']/effect_group[@name='ammo44MagnumBulletBall']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammo44MagnumBulletHP']/effect_group[@name='ammo44MagnumBulletHP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammo44MagnumBulletAP']/effect_group[@name='ammo44MagnumBulletAP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="45"/>
+		</passive_effect>
+	</append>
+	
+						<!--                  	Leg shots						-->
+	
+	<append xpath="/items/item[@name='ammo44MagnumBulletBall']/effect_group[@name='ammo44MagnumBulletBall']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammo44MagnumBulletHP']/effect_group[@name='ammo44MagnumBulletHP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="45"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammo44MagnumBulletAP']/effect_group[@name='ammo44MagnumBulletAP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+		</passive_effect>
+	</append>
+	
+						<!--                  	7.62mm Bullets                 	-->
+						<!--                  	Headshots no helm				-->
+	
+	<append xpath="/items/item[@name='ammo762mmBulletBall']/effect_group[@name='ammo762mmBulletBall']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="75"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammo762mmBulletHP']/effect_group[@name='ammo762mmBulletHP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="85"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammo762mmBulletAP']/effect_group[@name='ammo762mmBulletAP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="80"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+						<!--                  	Headshots with helm				-->
+	
+	<append xpath="/items/item[@name='ammo762mmBulletBall']/effect_group[@name='ammo762mmBulletBall']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammo762mmBulletHP']/effect_group[@name='ammo762mmBulletHP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="75"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammo762mmBulletAP']/effect_group[@name='ammo762mmBulletAP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="70"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+						<!--                  	Arm shots						-->
+	
+	<append xpath="/items/item[@name='ammo762mmBulletBall']/effect_group[@name='ammo762mmBulletBall']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="70"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammo762mmBulletHP']/effect_group[@name='ammo762mmBulletHP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="85"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammo762mmBulletAP']/effect_group[@name='ammo762mmBulletAP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="80"/>
+		</passive_effect>
+	</append>
+	
+						<!--                  	Leg shots						-->
+	
+	<append xpath="/items/item[@name='ammo762mmBulletBall']/effect_group[@name='ammo762mmBulletBall']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammo762mmBulletHP']/effect_group[@name='ammo762mmBulletHP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="75"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammo762mmBulletAP']/effect_group[@name='ammo762mmBulletAP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="70"/>
+		</passive_effect>
+	</append>
+			
+						<!--                  	Rockets		             		-->
+						<!--                  	Headshots	no helm 			-->
+	
+	<append xpath="/items/item[@name='ammoRocketHE']/effect_group[@name='ammoRocketHE']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="100"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoRocketFrag']/effect_group[@name='ammoRocketFrag']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="100"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+						<!--                  	Headshots with helm 			-->
+	
+	<append xpath="/items/item[@name='ammoRocketHE']/effect_group[@name='ammoRocketHE']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="85"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoRocketFrag']/effect_group[@name='ammoRocketFrag']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+						<!--                  	Arm shots						-->
+	
+	<append xpath="/items/item[@name='ammoRocketHE']/effect_group[@name='ammoRocketHE']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="100"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoRocketFrag']/effect_group[@name='ammoRocketFrag']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="100"/>
+		</passive_effect>
+	</append>
+	
+						<!--                  	Leg shots						-->
+	
+	<append xpath="/items/item[@name='ammoRocketHE']/effect_group[@name='ammoRocketHE']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="90"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoRocketFrag']/effect_group[@name='ammoRocketFrag']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="95"/>
+		</passive_effect>
+	</append>
+	
+						<!-- 					Arrows							-->
+						<!--                  	Headshots	no helm 			-->
+	
+	<append xpath="/items/item[@name='ammoArrowStone']/effect_group[@name='ammoArrowStone']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+
+	<append xpath="/items/item[@name='ammoArrowIron']/effect_group[@name='ammoArrowIron']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoArrowSteelAP']/effect_group[@name='ammoArrowSteelAP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoArrowFlaming']/effect_group[@name='ammoArrowFlaming']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="45"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoArrowExploding']/effect_group[@name='ammoArrowExploding']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="85"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+						<!--                  	Headshots	with helm 			-->
+	
+	<append xpath="/items/item[@name='ammoArrowStone']/effect_group[@name='ammoArrowStone']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="15"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+
+	<append xpath="/items/item[@name='ammoArrowIron']/effect_group[@name='ammoArrowIron']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoArrowSteelAP']/effect_group[@name='ammoArrowSteelAP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoArrowFlaming']/effect_group[@name='ammoArrowFlaming']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="23"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoArrowExploding']/effect_group[@name='ammoArrowExploding']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="65"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+						<!--                  	Arm shots			 			-->
+	
+	<append xpath="/items/item[@name='ammoArrowStone']/effect_group[@name='ammoArrowStone']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+		</passive_effect>
+	</append>
+
+	<append xpath="/items/item[@name='ammoArrowIron']/effect_group[@name='ammoArrowIron']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoArrowSteelAP']/effect_group[@name='ammoArrowSteelAP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoArrowFlaming']/effect_group[@name='ammoArrowFlaming']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="55"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoArrowExploding']/effect_group[@name='ammoArrowExploding']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="80"/>
+		</passive_effect>
+	</append>
+	
+						<!--                  	Leg shots			 			-->
+	
+	<append xpath="/items/item[@name='ammoArrowStone']/effect_group[@name='ammoArrowStone']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+		</passive_effect>
+	</append>
+
+	<append xpath="/items/item[@name='ammoArrowIron']/effect_group[@name='ammoArrowIron']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoArrowSteelAP']/effect_group[@name='ammoArrowSteelAP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoArrowFlaming']/effect_group[@name='ammoArrowFlaming']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="45"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoArrowExploding']/effect_group[@name='ammoArrowExploding']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="75"/>
+		</passive_effect>
+	</append>
+	
+	
+						<!-- 					Crossbow bolts					-->
+						<!--                  	Headshots	no helm 			-->
+	
+	<append xpath="/items/item[@name='ammoCrossbowBoltStone']/effect_group[@name='ammoCrossbowBoltStone']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+
+	<append xpath="/items/item[@name='ammoCrossbowBoltIron']/effect_group[@name='ammoCrossbowBoltIron']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoCrossbowBoltSteelAP']/effect_group[@name='ammoCrossbowBoltSteelAP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoCrossbowBoltFlaming']/effect_group[@name='ammoCrossbowBoltFlaming']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="45"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoCrossbowBoltExploding']/effect_group[@name='ammoCrossbowBoltExploding']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="80"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+						<!--                  	Headshots	with helm 			-->
+	
+	<append xpath="/items/item[@name='ammoCrossbowBoltStone']/effect_group[@name='ammoCrossbowBoltStone']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="15"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+
+	<append xpath="/items/item[@name='ammoCrossbowBoltIron']/effect_group[@name='ammoCrossbowBoltIron']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoCrossbowBoltSteelAP']/effect_group[@name='ammoCrossbowBoltSteelAP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoCrossbowBoltFlaming']/effect_group[@name='ammoCrossbowBoltFlaming']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="23"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoCrossbowBoltExploding']/effect_group[@name='ammoCrossbowBoltExploding']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="65"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+						<!--                  	Arm shots 						-->
+	
+	<append xpath="/items/item[@name='ammoCrossbowBoltStone']/effect_group[@name='ammoCrossbowBoltStone']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+		</passive_effect>
+	</append>
+
+	<append xpath="/items/item[@name='ammoCrossbowBoltIron']/effect_group[@name='ammoCrossbowBoltIron']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoCrossbowBoltSteelAP']/effect_group[@name='ammoCrossbowBoltSteelAP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoCrossbowBoltFlaming']/effect_group[@name='ammoCrossbowBoltFlaming']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="45"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoCrossbowBoltExploding']/effect_group[@name='ammoCrossbowBoltExploding']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="80"/>
+		</passive_effect>
+	</append>
+	
+						<!--                  	Leg shots 						-->
+	
+	<append xpath="/items/item[@name='ammoCrossbowBoltStone']/effect_group[@name='ammoCrossbowBoltStone']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+		</passive_effect>
+	</append>
+
+	<append xpath="/items/item[@name='ammoCrossbowBoltIron']/effect_group[@name='ammoCrossbowBoltIron']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoCrossbowBoltSteelAP']/effect_group[@name='ammoCrossbowBoltSteelAP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoCrossbowBoltFlaming']/effect_group[@name='ammoCrossbowBoltFlaming']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="35"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoCrossbowBoltExploding']/effect_group[@name='ammoCrossbowBoltExploding']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="65"/>
+		</passive_effect>
+	</append>
+	
+						<!-- 					Turret Ammo						-->
+						<!--                  	Headshots	no helm 			-->
+	
+	<append xpath="/items/item[@name='ammoJunkTurretRegular']/effect_group[@name='ammoJunkTurretRegular']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoJunkTurretShell']/effect_group[@name='ammoJunkTurretShell']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoJunkTurretAP']/effect_group[@name='ammoJunkTurretAP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+						<!--                  	Headshots	with helm 			-->
+	
+	<append xpath="/items/item[@name='ammoJunkTurretRegular']/effect_group[@name='ammoJunkTurretRegular']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoJunkTurretShell']/effect_group[@name='ammoJunkTurretShell']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoJunkTurretAP']/effect_group[@name='ammoJunkTurretAP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+						<!--                  	Arm shots						-->
+	
+	<append xpath="/items/item[@name='ammoJunkTurretRegular']/effect_group[@name='ammoJunkTurretRegular']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoJunkTurretShell']/effect_group[@name='ammoJunkTurretShell']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoJunkTurretAP']/effect_group[@name='ammoJunkTurretAP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+		</passive_effect>
+	</append>
+	
+						<!--                  	Leg shots						-->
+	
+	<append xpath="/items/item[@name='ammoJunkTurretRegular']/effect_group[@name='ammoJunkTurretRegular']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoJunkTurretShell']/effect_group[@name='ammoJunkTurretShell']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='ammoJunkTurretAP']/effect_group[@name='ammoJunkTurretAP']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+		</passive_effect>
+	</append>
+
+			<!--								Melee Weapons								-->
+	
+						<!--					Bladed Weapons					-->
+						<!--                    Headshots no helmet				-->
+	
+	<append xpath="/items/item[@name='meleeWpnBladeT0BoneKnife']/effect_group[@name='meleeWpnBladeT0BoneKnife']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeWpnBladeT0BoneKnife']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnBladeT1HuntingKnife']/effect_group[@name='meleeWpnBladeT1HuntingKnife']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeWpnBladeT1HuntingKnife']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnBladeT3Machete']/effect_group[@name='meleeWpnBladeT3Machete']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeWpnBladeT3Machete']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">	
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+						<!--                    Headshots with helmet				-->
+	
+	<append xpath="/items/item[@name='meleeWpnBladeT0BoneKnife']/effect_group[@name='meleeWpnBladeT0BoneKnife']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeWpnBladeT0BoneKnife']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnBladeT1HuntingKnife']/effect_group[@name='meleeWpnBladeT1HuntingKnife']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeWpnBladeT1HuntingKnife']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnBladeT3Machete']/effect_group[@name='meleeWpnBladeT3Machete']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeWpnBladeT3Machete']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+						<!--                    Arm shots							-->
+	
+	<append xpath="/items/item[@name='meleeWpnBladeT0BoneKnife']/effect_group[@name='meleeWpnBladeT0BoneKnife']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeWpnBladeT0BoneKnife']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnBladeT1HuntingKnife']/effect_group[@name='meleeWpnBladeT1HuntingKnife']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeWpnBladeT1HuntingKnife']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnBladeT3Machete']/effect_group[@name='meleeWpnBladeT3Machete']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeWpnBladeT3Machete']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="70"/>
+		</passive_effect>
+	</append>
+	
+						<!--                    Leg shots							-->
+	
+	<append xpath="/items/item[@name='meleeWpnBladeT0BoneKnife']/effect_group[@name='meleeWpnBladeT0BoneKnife']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeWpnBladeT0BoneKnife']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnBladeT1HuntingKnife']/effect_group[@name='meleeWpnBladeT1HuntingKnife']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeWpnBladeT1HuntingKnife']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnBladeT3Machete']/effect_group[@name='meleeWpnBladeT3Machete']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeWpnBladeT3Machete']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+		</passive_effect>
+	</append>
+						
+						<!--					Bats & Clubs					-->
+						<!--                    Headshots no helmet				-->
+	
+	<append xpath="/items/item[@name='meleeWpnClubT0WoodenClub']/effect_group[@name='meleeWpnClubT0WoodenClub']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="15"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnClubT0WoodenClub']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnClubT1BaseballBat']/effect_group[@name='meleeWpnClubT1BaseballBat']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="18"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnClubT1BaseballBat']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnClubT3SteelClub']/effect_group[@name='meleeWpnClubT3SteelClub']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnClubT3SteelClub']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+						<!--                    Headshots with helmet				-->
+
+	
+	<append xpath="/items/item[@name='meleeWpnClubT0WoodenClub']/effect_group[@name='meleeWpnClubT0WoodenClub']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="5"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnClubT0WoodenClub']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="15"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnClubT1BaseballBat']/effect_group[@name='meleeWpnClubT1BaseballBat']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnClubT1BaseballBat']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnClubT3SteelClub']/effect_group[@name='meleeWpnClubT3SteelClub']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="15"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnClubT3SteelClub']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+						<!--                    Arm shots							-->
+
+	
+	<append xpath="/items/item[@name='meleeWpnClubT0WoodenClub']/effect_group[@name='meleeWpnClubT0WoodenClub']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="2"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnClubT0WoodenClub']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="4"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnClubT1BaseballBat']/effect_group[@name='meleeWpnClubT1BaseballBat']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="4"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnClubT1BaseballBat']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="6"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnClubT3SteelClub']/effect_group[@name='meleeWpnClubT3SteelClub']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="6"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnClubT3SteelClub']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/>
+		</passive_effect>
+	</append>
+	
+						<!--                    Leg shots								-->
+
+	
+	<append xpath="/items/item[@name='meleeWpnClubT0WoodenClub']/effect_group[@name='meleeWpnClubT0WoodenClub']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="1"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnClubT0WoodenClub']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="4"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnClubT1BaseballBat']/effect_group[@name='meleeWpnClubT1BaseballBat']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="3"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnClubT1BaseballBat']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="7"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnClubT3SteelClub']/effect_group[@name='meleeWpnClubT3SteelClub']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="5"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnClubT3SteelClub']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/>
+		</passive_effect>
+	</append>
+	
+			<!--								Batons										-->
+			<!--								Headshots no helm							-->
+	
+	<append xpath="/items/item[@name='meleeWpnBatonT0PipeBaton']/effect_group[@name='meleeWpnBatonT0PipeBaton']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeWpnBatonT0PipeBaton']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="65"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnBatonT2StunBaton']/effect_group[@name='meleeWpnBatonT2StunBaton']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeWpnBatonT2StunBaton']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="70"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+			<!--								Headshots with helm							-->
+	
+	<append xpath="/items/item[@name='meleeWpnBatonT0PipeBaton']/effect_group[@name='meleeWpnBatonT0PipeBaton']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeWpnBatonT0PipeBaton']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnBatonT2StunBaton']/effect_group[@name='meleeWpnBatonT2StunBaton']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeWpnBatonT2StunBaton']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="45"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+			<!--								Arm Shots 								-->
+	
+	<append xpath="/items/item[@name='meleeWpnBatonT0PipeBaton']/effect_group[@name='meleeWpnBatonT0PipeBaton']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeWpnBatonT0PipeBaton']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnBatonT2StunBaton']/effect_group[@name='meleeWpnBatonT2StunBaton']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeWpnBatonT2StunBaton']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+		</passive_effect>
+	</append>
+	
+			<!--								Leg Shots 								-->
+	
+	<append xpath="/items/item[@name='meleeWpnBatonT0PipeBaton']/effect_group[@name='meleeWpnBatonT0PipeBaton']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeWpnBatonT0PipeBaton']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="35"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnBatonT2StunBaton']/effect_group[@name='meleeWpnBatonT2StunBaton']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeWpnBatonT2StunBaton']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+		</passive_effect>
+	</append>
+	
+	<!--											Spears												-->
+			<!--								Headshots no helm							-->
+	
+	<append xpath="/items/item[@name='meleeWpnSpearT0StoneSpear']/effect_group[@name='meleeWpnSpearT0StoneSpear']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSpearT0StoneSpear']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSpearT1IronSpear']/effect_group[@name='meleeWpnSpearT1IronSpear']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSpearT1IronSpear']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSpearT3SteelSpear']/effect_group[@name='meleeWpnSpearT3SteelSpear']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSpearT3SteelSpear']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="70"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+			<!--								Headshots with helm							-->
+	
+	<append xpath="/items/item[@name='meleeWpnSpearT0StoneSpear']/effect_group[@name='meleeWpnSpearT0StoneSpear']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSpearT0StoneSpear']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSpearT1IronSpear']/effect_group[@name='meleeWpnSpearT1IronSpear']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSpearT1IronSpear']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="35"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSpearT3SteelSpear']/effect_group[@name='meleeWpnSpearT3SteelSpear']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSpearT3SteelSpear']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="45"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+			<!--								Arm shots								-->
+	
+	<append xpath="/items/item[@name='meleeWpnSpearT0StoneSpear']/effect_group[@name='meleeWpnSpearT0StoneSpear']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSpearT0StoneSpear']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSpearT1IronSpear']/effect_group[@name='meleeWpnSpearT1IronSpear']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSpearT1IronSpear']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSpearT3SteelSpear']/effect_group[@name='meleeWpnSpearT3SteelSpear']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSpearT3SteelSpear']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="70"/>
+		</passive_effect>
+	</append>
+	
+			<!--								Leg shots								-->
+	
+	<append xpath="/items/item[@name='meleeWpnSpearT0StoneSpear']/effect_group[@name='meleeWpnSpearT0StoneSpear']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSpearT0StoneSpear']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSpearT1IronSpear']/effect_group[@name='meleeWpnSpearT1IronSpear']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSpearT1IronSpear']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSpearT3SteelSpear']/effect_group[@name='meleeWpnSpearT3SteelSpear']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSpearT3SteelSpear']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+		</passive_effect>
+	</append>
+	
+	
+	<!--												Knuckles											-->
+					<!-- 								Headshots no helm					-->
+	
+	<append xpath="/items/item[@name='meleeWpnKnucklesT0LeatherKnuckles']/effect_group[@name='meleeWpnKnucklesT0LeatherKnuckles']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="5"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnKnucklesT0LeatherKnuckles']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnKnucklesT1IronKnuckles']/effect_group[@name='meleeWpnKnucklesT1IronKnuckles']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="7"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnKnucklesT1IronKnuckles']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="12"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnKnucklesT3SteelKnuckles']/effect_group[@name='meleeWpnKnucklesT3SteelKnuckles']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnKnucklesT3SteelKnuckles']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="15"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+					<!-- 								Headshots with helm					-->
+	
+	<append xpath="/items/item[@name='meleeWpnKnucklesT0LeatherKnuckles']/effect_group[@name='meleeWpnKnucklesT0LeatherKnuckles']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="3"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnKnucklesT0LeatherKnuckles']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="5"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnKnucklesT1IronKnuckles']/effect_group[@name='meleeWpnKnucklesT1IronKnuckles']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="4"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnKnucklesT1IronKnuckles']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="7"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnKnucklesT3SteelKnuckles']/effect_group[@name='meleeWpnKnucklesT3SteelKnuckles']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="5"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnKnucklesT3SteelKnuckles']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+					<!-- 								Arm shots							-->
+	
+	<append xpath="/items/item[@name='meleeWpnKnucklesT0LeatherKnuckles']/effect_group[@name='meleeWpnKnucklesT0LeatherKnuckles']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="4"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnKnucklesT0LeatherKnuckles']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="6"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnKnucklesT1IronKnuckles']/effect_group[@name='meleeWpnKnucklesT1IronKnuckles']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="5"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnKnucklesT1IronKnuckles']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="7"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnKnucklesT3SteelKnuckles']/effect_group[@name='meleeWpnKnucklesT3SteelKnuckles']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="6"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnKnucklesT3SteelKnuckles']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="8"/>
+		</passive_effect>
+	</append>
+	
+					<!-- 								Leg shots							-->
+	
+	<append xpath="/items/item[@name='meleeWpnKnucklesT0LeatherKnuckles']/effect_group[@name='meleeWpnKnucklesT0LeatherKnuckles']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="2"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnKnucklesT0LeatherKnuckles']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="4"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnKnucklesT1IronKnuckles']/effect_group[@name='meleeWpnKnucklesT1IronKnuckles']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="3"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnKnucklesT1IronKnuckles']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="5"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnKnucklesT3SteelKnuckles']/effect_group[@name='meleeWpnKnucklesT3SteelKnuckles']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="4"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnKnucklesT3SteelKnuckles']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="6"/>
+		</passive_effect>
+	</append>
+	
+	<!--												Sledgehammers											-->
+					<!-- 								Headshots no helm					-->
+	
+	<append xpath="/items/item[@name='meleeWpnSledgeT0StoneSledgehammer']/effect_group[@name='meleeWpnSledgeT0StoneSledgehammer']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="35"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSledgeT0StoneSledgehammer']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSledgeT1IronSledgehammer']/effect_group[@name='meleeWpnSledgeT1IronSledgehammer']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="45"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSledgeT1IronSledgehammer']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSledgeT3SteelSledgehammer']/effect_group[@name='meleeWpnSledgeT3SteelSledgehammer']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="55"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSledgeT3SteelSledgehammer']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="70"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+					<!-- 								Headshots with helm					-->
+	
+	<append xpath="/items/item[@name='meleeWpnSledgeT0StoneSledgehammer']/effect_group[@name='meleeWpnSledgeT0StoneSledgehammer']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="15"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSledgeT0StoneSledgehammer']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSledgeT1IronSledgehammer']/effect_group[@name='meleeWpnSledgeT1IronSledgehammer']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSledgeT1IronSledgehammer']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSledgeT3SteelSledgehammer']/effect_group[@name='meleeWpnSledgeT3SteelSledgehammer']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="35"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSledgeT3SteelSledgehammer']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+					<!-- 								Arm shots							-->
+	
+	<append xpath="/items/item[@name='meleeWpnSledgeT0StoneSledgehammer']/effect_group[@name='meleeWpnSledgeT0StoneSledgehammer']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSledgeT0StoneSledgehammer']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSledgeT1IronSledgehammer']/effect_group[@name='meleeWpnSledgeT1IronSledgehammer']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSledgeT1IronSledgehammer']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSledgeT3SteelSledgehammer']/effect_group[@name='meleeWpnSledgeT3SteelSledgehammer']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSledgeT3SteelSledgehammer']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="70"/>
+		</passive_effect>
+	</append>
+	
+						<!-- 								Leg shots							-->
+	
+	<append xpath="/items/item[@name='meleeWpnSledgeT0StoneSledgehammer']/effect_group[@name='meleeWpnSledgeT0StoneSledgehammer']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSledgeT0StoneSledgehammer']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="35"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSledgeT1IronSledgehammer']/effect_group[@name='meleeWpnSledgeT1IronSledgehammer']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="35"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSledgeT1IronSledgehammer']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="45"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSledgeT3SteelSledgehammer']/effect_group[@name='meleeWpnSledgeT3SteelSledgehammer']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="45"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeWpnSledgeT3SteelSledgehammer']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="55"/>
+		</passive_effect>
+	</append>
+	
+	
+	
+		<!-- 							Stone Axe									-->
+				<!--					Headshots no helm					-->
+				
+	<append xpath="/items/item[@name='meleeToolRepairT0StoneAxe']/effect_group[@name='meleeToolRepairT0StoneAxe']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="2"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+				<!--					Headshots with helm					-->
+				
+	<append xpath="/items/item[@name='meleeToolRepairT0StoneAxe']/effect_group[@name='meleeToolRepairT0StoneAxe']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="1"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+				<!--					Arm shots							-->
+				
+	<append xpath="/items/item[@name='meleeToolRepairT0StoneAxe']/effect_group[@name='meleeToolRepairT0StoneAxe']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="3"/>
+		</passive_effect>
+	</append>
+	
+				<!--					Leg shots							-->
+				
+	<append xpath="/items/item[@name='meleeToolRepairT0StoneAxe']/effect_group[@name='meleeToolRepairT0StoneAxe']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="2"/>
+		</passive_effect>
+	</append>
+	<!-- 								Pickaxes										-->
+				<!--					Headshots no helm					-->
+
+	<append xpath="/items/item[@name='meleeToolPickT1IronPickaxe']/effect_group[@name='meleeToolPickT1IronPickaxe']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="5"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolPickT1IronPickaxe']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolPickT2SteelPickaxe']/effect_group[@name='meleeToolPickT2SteelPickaxe']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="7"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolPickT2SteelPickaxe']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="14"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+				<!--					Headshots with helm					-->
+
+	<append xpath="/items/item[@name='meleeToolPickT1IronPickaxe']/effect_group[@name='meleeToolPickT1IronPickaxe']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="2"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolPickT1IronPickaxe']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="6"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolPickT2SteelPickaxe']/effect_group[@name='meleeToolPickT2SteelPickaxe']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="5"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolPickT2SteelPickaxe']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+					<!--					Arm shots						-->
+
+	<append xpath="/items/item[@name='meleeToolPickT1IronPickaxe']/effect_group[@name='meleeToolPickT1IronPickaxe']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolPickT1IronPickaxe']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolPickT2SteelPickaxe']/effect_group[@name='meleeToolPickT2SteelPickaxe']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolPickT2SteelPickaxe']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+		</passive_effect>
+	</append>
+	
+					<!--					Leg shots						-->
+
+	<append xpath="/items/item[@name='meleeToolPickT1IronPickaxe']/effect_group[@name='meleeToolPickT1IronPickaxe']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolPickT1IronPickaxe']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolPickT2SteelPickaxe']/effect_group[@name='meleeToolPickT2SteelPickaxe']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolPickT2SteelPickaxe']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+		</passive_effect>
+	</append>
+	
+	<!--									Fireaxes									-->
+				<!--					Headshots no helm					-->
+	
+	<append xpath="/items/item[@name='meleeToolAxeT1IronFireaxe']/effect_group[@name='meleeToolAxeT1IronFireaxe']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolAxeT1IronFireaxe']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="70"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolAxeT2SteelAxe']/effect_group[@name='meleeToolAxeT2SteelAxe']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolAxeT2SteelAxe']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="80"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+				<!--					Headshots with helm					-->
+	
+	<append xpath="/items/item[@name='meleeToolAxeT1IronFireaxe']/effect_group[@name='meleeToolAxeT1IronFireaxe']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolAxeT1IronFireaxe']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolAxeT2SteelAxe']/effect_group[@name='meleeToolAxeT2SteelAxe']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolAxeT2SteelAxe']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+				<!--					Arm shots						-->
+	
+	<append xpath="/items/item[@name='meleeToolAxeT1IronFireaxe']/effect_group[@name='meleeToolAxeT1IronFireaxe']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolAxeT1IronFireaxe']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolAxeT2SteelAxe']/effect_group[@name='meleeToolAxeT2SteelAxe']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolAxeT2SteelAxe']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="70"/>
+		</passive_effect>
+	</append>
+	
+				<!--					Leg shots						-->
+	
+	<append xpath="/items/item[@name='meleeToolAxeT1IronFireaxe']/effect_group[@name='meleeToolAxeT1IronFireaxe']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolAxeT1IronFireaxe']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolAxeT2SteelAxe']/effect_group[@name='meleeToolAxeT2SteelAxe']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolAxeT2SteelAxe']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+		</passive_effect>
+	</append>
+	
+		<!--							Shovels								-->
+						<!-- 			Headshots no helmet			-->
+	
+	<append xpath="/items/item[@name='meleeToolShovelT0StoneShovel']/effect_group[@name='meleeToolShovelT0StoneShovel']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="3"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolShovelT0StoneShovel']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="5"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolShovelT1IronShovel']/effect_group[@name='meleeToolShovelT1IronShovel']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="5"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolShovelT1IronShovel']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="7"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolShovelT2SteelShovel']/effect_group[@name='meleeToolShovelT2SteelShovel']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="7"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolShovelT2SteelShovel']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+
+						<!-- 			Headshots with helmet			-->
+	
+	<append xpath="/items/item[@name='meleeToolShovelT0StoneShovel']/effect_group[@name='meleeToolShovelT0StoneShovel']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="1"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolShovelT0StoneShovel']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="3"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolShovelT1IronShovel']/effect_group[@name='meleeToolShovelT1IronShovel']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="2"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolShovelT1IronShovel']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="4"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolShovelT2SteelShovel']/effect_group[@name='meleeToolShovelT2SteelShovel']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="3"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolShovelT2SteelShovel']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="5"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+							<!-- 			Arm shots				-->
+	
+	<append xpath="/items/item[@name='meleeToolShovelT0StoneShovel']/effect_group[@name='meleeToolShovelT0StoneShovel']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="8"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolShovelT0StoneShovel']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="12"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolShovelT1IronShovel']/effect_group[@name='meleeToolShovelT1IronShovel']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolShovelT1IronShovel']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="15"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolShovelT2SteelShovel']/effect_group[@name='meleeToolShovelT2SteelShovel']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="12"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolShovelT2SteelShovel']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="17"/>
+		</passive_effect>
+	</append>
+	
+								<!-- 			Leg shots				-->
+	
+	<append xpath="/items/item[@name='meleeToolShovelT0StoneShovel']/effect_group[@name='meleeToolShovelT0StoneShovel']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="4"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolShovelT0StoneShovel']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="6"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolShovelT1IronShovel']/effect_group[@name='meleeToolShovelT1IronShovel']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="5"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolShovelT1IronShovel']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="7"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolShovelT2SteelShovel']/effect_group[@name='meleeToolShovelT2SteelShovel']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="6"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolShovelT2SteelShovel']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="8"/>
+		</passive_effect>
+	</append>
+	
+		<!--								Salvaging Tools								-->
+					<!-- 					Headshots no helm					-->
+	
+	<append xpath="/items/item[@name='meleeToolSalvageT1Wrench']/effect_group[@name='meleeToolSalvageT1Wrench']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="3"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolSalvageT1Wrench']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="6"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolSalvageT2Ratchet']/effect_group[@name='meleeToolSalvageT2Ratchet']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="4"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolSalvageT2Ratchet']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="8"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolSalvageT3ImpactDriver']/effect_group[@name='meleeToolSalvageT3ImpactDriver']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="6"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolSalvageT3ImpactDriver']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+					<!-- 					Headshots with helm					-->
+	
+	<append xpath="/items/item[@name='meleeToolSalvageT1Wrench']/effect_group[@name='meleeToolSalvageT1Wrench']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="1"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolSalvageT1Wrench']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="3"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolSalvageT2Ratchet']/effect_group[@name='meleeToolSalvageT2Ratchet']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="2"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolSalvageT2Ratchet']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="4"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolSalvageT3ImpactDriver']/effect_group[@name='meleeToolSalvageT3ImpactDriver']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="3"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolSalvageT3ImpactDriver']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="5"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+					<!-- 					Arm shots						-->
+	
+	<append xpath="/items/item[@name='meleeToolSalvageT1Wrench']/effect_group[@name='meleeToolSalvageT1Wrench']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="8"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolSalvageT1Wrench']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="11"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolSalvageT2Ratchet']/effect_group[@name='meleeToolSalvageT2Ratchet']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolSalvageT2Ratchet']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="14"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolSalvageT3ImpactDriver']/effect_group[@name='meleeToolSalvageT3ImpactDriver']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="12"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolSalvageT3ImpactDriver']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="15"/>
+		</passive_effect>
+	</append>
+	
+					<!-- 					Leg shots						-->
+	
+	<append xpath="/items/item[@name='meleeToolSalvageT1Wrench']/effect_group[@name='meleeToolSalvageT1Wrench']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="2"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolSalvageT1Wrench']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="7"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolSalvageT2Ratchet']/effect_group[@name='meleeToolSalvageT2Ratchet']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="3"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolSalvageT2Ratchet']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="8"/>
+		</passive_effect>
+	</append>
+	
+	<append xpath="/items/item[@name='meleeToolSalvageT3ImpactDriver']/effect_group[@name='meleeToolSalvageT3ImpactDriver']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="4"/>
+		</passive_effect>
+	</append>
+	<append xpath="/items/item[@name='meleeToolSalvageT3ImpactDriver']/effect_group[@name='Power Attack']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="secondary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="9"/>
+		</passive_effect>
+	</append>
+	
+		<!--								Claw Hammer						-->
+				<!--						Headshot no helm		-->
+	
+	<append xpath="/items/item[@name='meleeToolRepairT1ClawHammer']/effect_group[@name='meleeToolRepairT1ClawHammer']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="13"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+				<!--						Headshot with helm		-->
+	
+	<append xpath="/items/item[@name='meleeToolRepairT1ClawHammer']/effect_group[@name='meleeToolRepairT1ClawHammer']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="7"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+				<!--						Arm shots				-->
+	
+	<append xpath="/items/item[@name='meleeToolRepairT1ClawHammer']/effect_group[@name='meleeToolRepairT1ClawHammer']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="8"/>
+		</passive_effect>
+	</append>
+	
+				<!--						Leg shots				-->
+	
+	<append xpath="/items/item[@name='meleeToolRepairT1ClawHammer']/effect_group[@name='meleeToolRepairT1ClawHammer']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="4"/>
+		</passive_effect>
+	</append>
+	
+	<!--									Nailgun										-->
+				<!-- 						Headshot no helmet				-->
+	
+	<append xpath="/items/item[@name='meleeToolRepairT3Nailgun']/effect_group[@name='meleeToolRepairT3Nailgun']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="15"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+				<!-- 						Headshot with helmet				-->
+	
+	<append xpath="/items/item[@name='meleeToolRepairT3Nailgun']/effect_group[@name='meleeToolRepairT3Nailgun']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="5"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+				<!-- 						Arm Shot							-->
+	
+	<append xpath="/items/item[@name='meleeToolRepairT3Nailgun']/effect_group[@name='meleeToolRepairT3Nailgun']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="7"/>
+		</passive_effect>
+	</append>
+	
+				<!-- 						Leg Shot							-->
+	
+	<append xpath="/items/item[@name='meleeToolRepairT3Nailgun']/effect_group[@name='meleeToolRepairT3Nailgun']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="5"/>
+		</passive_effect>
+	</append>
+	
+	<!--									Chainsaw										-->
+				<!--						Headshot no helm					-->
+	
+	<append xpath="/items/item[@name='meleeToolAxeT3Chainsaw']/effect_group[@name='meleeToolAxeT3Chainsaw']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="100"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+
+				<!--						Headshot with helm					-->
+	
+	<append xpath="/items/item[@name='meleeToolAxeT3Chainsaw']/effect_group[@name='meleeToolAxeT3Chainsaw']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="85"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+				<!--						Arm Shot 							-->
+	
+	<append xpath="/items/item[@name='meleeToolAxeT3Chainsaw']/effect_group[@name='meleeToolAxeT3Chainsaw']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="98"/>
+		</passive_effect>
+	</append>
+	
+				<!--						Leg Shot 							-->
+	
+	<append xpath="/items/item[@name='meleeToolAxeT3Chainsaw']/effect_group[@name='meleeToolAxeT3Chainsaw']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="95"/>
+		</passive_effect>
+	</append>
+	
+	<!--									Auger										-->
+			<!--							Headshot no helm				-->
+	
+	<append xpath="/items/item[@name='meleeToolPickT3Auger']/effect_group[@name='meleeToolPickT3Auger']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+			<!--							Headshot with helm				-->
+	
+	<append xpath="/items/item[@name='meleeToolPickT3Auger']/effect_group[@name='meleeToolPickT3Auger']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+			<!--							Arm Shot						-->
+	
+	<append xpath="/items/item[@name='meleeToolPickT3Auger']/effect_group[@name='meleeToolPickT3Auger']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
+		</passive_effect>
+	</append>
+	
+			<!--							Leg Shot						-->
+	
+	<append xpath="/items/item[@name='meleeToolPickT3Auger']/effect_group[@name='meleeToolPickT3Auger']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+		</passive_effect>
+	</append>
+	
+	<!--									Torch										-->
+			<!--							Headshot no helm				-->
+	
+	<append xpath="/items/item[@name='meleeToolTorch']/effect_group[@name='meleeToolTorch']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="4"/>
+			<requirement name="EntityTagCompare" target="other" tags="nohelmet"/>
+		</passive_effect>
+	</append>
+	
+			<!--							Headshot with helm				-->
+	
+	<append xpath="/items/item[@name='meleeToolTorch']/effect_group[@name='meleeToolTorch']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, head">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="2"/>
+			<requirement name="EntityTagCompare" target="other" tags="helmet"/>
+		</passive_effect>
+	</append>
+	
+			<!--							Arm Shot						-->
+	
+	<append xpath="/items/item[@name='meleeToolTorch']/effect_group[@name='meleeToolTorch']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, arm">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="3"/>
+		</passive_effect>
+	</append>
+	
+			<!--							Leg Shot						-->
+	
+	<append xpath="/items/item[@name='meleeToolTorch']/effect_group[@name='meleeToolTorch']">
+		<passive_effect name="DismemberChance" operation="base_add" value="100" tags="primary, leg">
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="1"/>
+		</passive_effect>
+	</append>
+
+</config>
